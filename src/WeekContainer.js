@@ -1,7 +1,6 @@
 import React from 'react';
 //import keyConfig from './apiKeys';
-
-
+import DayCard from './DayCard.js'
 
 
 class WeekContainer extends React.Component {
@@ -31,11 +30,16 @@ class WeekContainer extends React.Component {
           this.setState({
             fullData: data.list,
             dailyData: dailyData
-
+            
             //console log the array of 5 days of weather prediction
           }, () => console.log(this.state.dailyData))
         })
       }
+
+      formatDayCards = () => {
+        return this.state.dailyData.map((reading, index) => <DayCard reading={reading} key={index} />)
+      }
+    
 
     render() {
 
@@ -44,7 +48,7 @@ class WeekContainer extends React.Component {
 
         return (
             <div>
-                <p> Hello World </p>
+                {this.formatDayCards()}
             </div>
         )
     }
