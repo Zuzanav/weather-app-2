@@ -1,13 +1,15 @@
 import React from 'react';
 //import keyConfig from './apiKeys';
 import DayCard from './DayCard.js'
+import './styles.css'
 
 
 class WeekContainer extends React.Component {
     // set the State to be empty array of full weather data and daily weather data (instead of every 3 hours)
     state = {
         fullData: [],
-        dailyData: []
+        dailyData: [],
+        cityName: []
     }
 
     // when the component mounts in the DOM, make a call to fetch data using API Key and specific zip code 
@@ -29,15 +31,20 @@ class WeekContainer extends React.Component {
           // set the state for the dailyData to include the array of 5 days 
           this.setState({
             fullData: data.list,
-            dailyData: dailyData
+            dailyData: dailyData,
+            cityName: data.city.name
             
             //console log the array of 5 days of weather prediction
-          }, () => console.log(this.state.dailyData))
+          }, () => console.log(this.state.dailyData, this.state.cityName))
         })
       }
 
       formatDayCards = () => {
-        return this.state.dailyData.map((reading, index) => <DayCard reading={reading} key={index} />)
+        return this.state.dailyData.map((reading, index) => 
+        <DayCard 
+            reading={reading} 
+            key={index} 
+        />)
       }
     
 
@@ -48,15 +55,8 @@ class WeekContainer extends React.Component {
 
         return (
             <div>
-
+                <p className="city-name-text">{this.state.cityName}</p>
                 {this.formatDayCards()}
-{/* 
-                <DayCard
-                        reading = {reading}
-                        key={index}
-
-                >
-                </DayCard> */}
 
             </div>
         )
