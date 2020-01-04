@@ -48,7 +48,16 @@ class WeekContainer extends React.Component {
 
         return (
             <div>
+
                 {this.formatDayCards()}
+{/* 
+                <DayCard
+                        reading = {reading}
+                        key={index}
+
+                >
+                </DayCard> */}
+
             </div>
         )
     }
