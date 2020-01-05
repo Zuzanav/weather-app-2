@@ -1,5 +1,5 @@
 import React from 'react';
-//import keyConfig from './apiKeys';
+import apiConfig from './apiKeys';
 import DayCard from './DayCard.js'
 import './styles.css'
 
@@ -15,7 +15,7 @@ class WeekContainer extends React.Component {
     // when the component mounts in the DOM, make a call to fetch data using API Key and specific zip code 
     componentDidMount = () => {
 
-        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=`
+        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=${apiConfig.owmKey}`
     
         // fetch data from the API by calling on the above URL 
         fetch(weatherURL)
@@ -50,7 +50,7 @@ class WeekContainer extends React.Component {
 
     render() {
 
-        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=`
+       // const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=${apiConfig.owmKey}`
 
 
         return (

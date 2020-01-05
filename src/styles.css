@@ -1,3 +1,8 @@
 .city-name-text {
     font-size: 20px;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
