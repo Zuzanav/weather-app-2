@@ -26,7 +26,7 @@ class WeekContainer extends React.Component {
             // and add filtered data to new variable dailyData
             // this data filters out only the weather for the time 18:00 so that we only get one weather prediction a day,
             // as opposed to a weather prediction for every 3 hours. 
-          const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
+          const dailyData = data.list.filter(reading => reading.dt_txt.includes("21:00:00"))
 
           // set the state for the dailyData to include the array of 5 days 
           this.setState({
@@ -54,10 +54,12 @@ class WeekContainer extends React.Component {
 
 
         return (
-            <div>
+            <div className="container">
                 <p className="city-name-text">{this.state.cityName}</p>
-                {this.formatDayCards()}
 
+                <div className="wrapper">
+                    {this.formatDayCards()}
+                </div>
             </div>
         )
     }

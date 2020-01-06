@@ -9,10 +9,12 @@ var theDate = moment(reading.dt_txt).format("dddd, MMM Do");
 
         return (
 
-            <div className="wrapper">
-                <p className="card-text date-text">{theDate}</p>
-                <p className="card-text desc-text">{reading.weather[0].description}</p>
-                <p className="card-text temp-text">{Math.round(reading.main.temp)}</p>
+            <div>
+                <div className="box box1">
+                    <p className="nested card-text date-text">{theDate}</p>
+                    <p className="nested card-text desc-text">{reading.weather[0].description}</p>
+                    <p className="nested card-text temp-text">{Math.round(reading.main.temp)}&#176;F</p>
+                </div>
             </div>
         )
     }
