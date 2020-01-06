@@ -55,6 +55,7 @@ class WeekContainer extends React.Component {
 
         return (
             <div className="container">
+                <h1> 5 Day Forecast </h1>
                 <p className="city-name-text">{this.state.cityName}</p>
 
                 <div className="wrapper">

@@ -1,3 +1,8 @@
+h1 {
+    text-align: center;
+    color: black;
+}
+
 .city-name-text {
     font-size: 25px;
     text-align: center;
@@ -16,18 +21,28 @@
 }
 
 .box1 {
-    padding: 5px;
+        padding: 5px;
     border-style: solid;
     border-width: 3px;
     border-color: #CFCFCF;
     border-radius: 4%;
-    border-color: #207BF7;
+    border-color: #CDCDCD;
+    background-color: #000000;
 }
 
 .card-text {
     text-align: center;
+    color: #FFFFFF;
 }
 
 .date-text {
+    font-size: 18px;
     font-weight: bold;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
