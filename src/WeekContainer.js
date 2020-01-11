@@ -15,7 +15,7 @@ class WeekContainer extends React.Component {
     // when the component mounts in the DOM, make a call to fetch data using API Key and specific zip code 
     componentDidMount = () => {
 
-        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=${apiConfig.owmKey}`
+        var weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92101&units=imperial&APPID=${apiConfig.owmKey}`
     
         // fetch data from the API by calling on the above URL 
         fetch(weatherURL)
@@ -32,7 +32,8 @@ class WeekContainer extends React.Component {
           this.setState({
             fullData: data.list,
             dailyData: dailyData,
-            cityName: data.city.name
+            cityName: data.city.name,
+            query: weatherURL
             
             //console log the array of 5 days of weather prediction
           }, () => console.log(this.state.dailyData, this.state.cityName))
@@ -46,7 +47,12 @@ class WeekContainer extends React.Component {
             key={index} 
         />)
       }
-    
+
+      queryChange = (event) => {
+          this.setState({query: event.target.value}) 
+          //weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&APPID=${apiConfig.owmKey}`
+      }
+
 
     render() {
 
@@ -58,6 +64,15 @@ class WeekContainer extends React.Component {
                 <h1> 5 Day Forecast </h1>
                 <p className="city-name-text">{this.state.cityName}</p>
 
+{/* 
+                <form>
+                    <label>
+                        <input placeholder="zipcode" type="text" name="name" />
+                    </label>
+                    <input type="submit" value= {this.state.value} onChange={this.queryChange} />
+                </form> */}
+                
+
                 <div className="wrapper">
                     {this.formatDayCards()}
                 </div>
@@ -66,5 +81,7 @@ class WeekContainer extends React.Component {
     }
 
 }
+
+
 
 export default WeekContainer;

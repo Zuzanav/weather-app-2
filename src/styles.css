@@ -6,11 +6,13 @@ h1 {
 .city-name-text {
     font-size: 25px;
     text-align: center;
-    
 }
+
 .container {
     margin-right: 20px;
     margin-left: 20px;
+    display: grid;
+    grid-column: 1;
 }
 
 .wrapper {
@@ -21,7 +23,7 @@ h1 {
 }
 
 .box1 {
-        padding: 5px;
+    padding: 5px;
     border-style: solid;
     border-width: 3px;
     border-color: #CFCFCF;
